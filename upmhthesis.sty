@@ -81,7 +81,7 @@
 \RequirePackage[framemethod = default]{mdframed} % Required for creating the theorem, definition, exercise and corollary boxes
 
 \RequirePackage[bottom]{footmisc}
-    \renewcommand{\thefootnote}{\Roman{footnote}}
+    \renewcommand{\thefootnote}{\fnsymbol{footnote}}
     \counterwithin*{footnote}{chapter}
     
 \newcommand{\addcomment}[1]{{\Large\itshape\textcolor{red}{#1}}}
@@ -155,95 +155,79 @@
         \thispdfpagelabel{C}
         \pdfbookmark[0]{Portada}{Portada}
         \begin{titlepage}
-            \newgeometry{left=3cm, right=2cm, top=2cm, bottom=2cm}
+            \newgeometry{margin = 0.75in}
             \noindent
-            \begin{minipage}[c][0.99\textheight][c]{0.2\textwidth}
+            \hspace{0mm}
+            \begin{minipage}[c][0.15\textheight][c]{\textwidth}
                 \noindent
-                \begin{minipage}[t][0.15\textheight][c]{\textwidth}
-                \begin{center}
-                    \includegraphics[height = 2.5cm]{\@logouniversity}
-                \end{center}
+                \begin{minipage}[t][0.15\textheight][c]{2.5cm}
+                    \includegraphics[height = 2cm]{\@logouniversity}
+                \end{minipage}\hspace{5mm}
+                \begin{minipage}[t][0.15\textheight][c]{0.65\textwidth}
+                    \centering
+                    \vspace{3cm}{\large\scshape \@university\par}
+                    \vspace{5mm}{\color{mia_blue}\hrule height4pt}
+                    \vspace{2mm}{\color{mia_blue}\hrule height1pt}
+                    \vspace{5mm}{\large\scshape\@faculty\unskip\par}
+                    \vspace{24mm}
+                \end{minipage}\hspace{5mm}
+                \begin{minipage}[t][0.15\textheight][c]{2.5cm}
+                    \includegraphics[height = 2.5cm]{\@logofaculty}
+                \end{minipage}
             \end{minipage}
-            \\\noindent
-            \begin{minipage}[t][0.66\textheight][c]{\textwidth}
-                \begin{center}
-                    \color{mia_blue}
-                    \hskip5mm\vrule width4pt height0.63\textheight
-                    \hskip2mm\vrule width1pt height0.63\textheight
-                \end{center}
-            \end{minipage}
-            \\\noindent
-            \begin{minipage}[b][0.15\textheight][c]{\textwidth}
-         	    \begin{center}
-                    \includegraphics[height = 3cm]{\@logofaculty}
-                \end{center}
-            \end{minipage}
-        \end{minipage}
-        \hfill
-        \begin{minipage}[c][0.99\textheight][t]{0.75\textwidth}
-            \begin{center}
-                \vspace{8mm}{\large\scshape \@university\par}
-                \vspace{5mm}{\color{mia_blue}\hrule height4pt}
-                \vspace{2mm}{\color{mia_blue}\hrule height1pt}
-                \vspace{5mm}{\large\scshape\@faculty\unskip\par}
-                \vspace{24mm}
-                \begin{center}
-                    \vfill
-                    {\Large\scshape\@title}\\[25mm]
-                    \vfill
+            
+            \vspace{2cm}
 
-                    \textsc{\LARGE T\hspace{15mm}E\hspace{15mm}S\hspace{15mm}I\hspace{15mm}S}\\[12mm]
+            \hspace{0.14\textwidth}
+            \begin{minipage}[c][0.65\textheight][t]{0.64\textwidth}
+                \begin{center}
+                    {\Large\scshape\@title}\\[20mm]
+                    \textsc{\LARGE T\hspace{15mm}E\hspace{15mm}S\hspace{15mm}I\hspace{15mm}S}\\[10mm]
                     \textsc{\large PARA OBTENER EL TÍTULO DE:}\\[5mm]
                     \textsc{\large \@degree}\\[10mm]
                     \textsc{\large\textbf{P R E S E N T A}}\\[2.5mm]
-                    \textsc{\large\textbf\scshape\@author}\\[25mm]
-                    {\large\scshape ASESOR:\\[0.3cm] {\@supervisor}}\\[.2in]
-                    \vfill
+                    \textsc{\large\textbf\scshape\@author}\\[20mm]
+                    {\large\scshape ASESORES:\\[0.3cm] {\@supervisor}}\\[1in]
                     {\scshape\@cityandyear}
                     \vspace{.99cm}
                 \end{center}
-            \end{center}
-        \end{minipage}
-    \end{titlepage}
+            \end{minipage}
+        \end{titlepage}
     
     % ================================================================
     % TITLE PAGE
     % ================================================================
-    \cleardoublepage
-    \begin{titlepage}
-	    \newgeometry{left=3cm, right=3cm, bottom=2.5cm, top=2cm}
+        \cleardoublepage
+        \begin{titlepage}
+	        \newgeometry{left = 3cm, right = 3.5cm, bottom = 4.5cm, top = 4.5cm}
             \noindent
-            \hspace{1cm}
-            \begin{minipage}[c][0.99\textheight][c]{0.2\textwidth}%
+            \begin{minipage}[c][0.99\textheight][c]{0.125\textwidth}%
                 \noindent\begin{minipage}[t][0.15\textheight][c]{\textwidth}
                     \begin{center}
-                        \vspace{7.5cm}
-                        \includegraphics[height = 2.1cm]{\@logouniversity}\\[0.5cm]
-                        \includegraphics[height = 3.0cm]{\@logofaculty}\\[0.5cm]
-                        \includegraphics[height = 3.0cm]{\@logoconacyt}
+                        \includegraphics[height = 15mm]{\@logouniversity}\\[0.5cm]
+                        \includegraphics[height = 20mm]{\@logofaculty}\\[0.5cm]
+                        \includegraphics[height = 20mm]{\@logoconacyt}
                     \end{center}
-                    \vspace{14.5cm}
+                    \vspace{15.5cm}
                 \end{minipage}%
-                \noindent\begin{minipage}[c][0.66\textheight][c]{0.85\textwidth}
+                \noindent\begin{minipage}[c][0.66\textheight][c]{0.65\textwidth}
                 \begin{center}
                     \color{mia_blue}
                     \hskip5mm
-                    \vrule width8pt height0.632\textheight
+                    \vrule width4pt height\textheight
                     \hskip2mm
-                    \vrule width3pt height0.632\textheight
+                    \vrule width1pt height\textheight
                 \end{center}
             \end{minipage}%
         \end{minipage}
-        \hspace{2cm}
-        \begin{minipage}[c][0.99\textheight][t]{0.5\textwidth}
-            \vspace{7cm}
-            
+        \hspace{15mm}
+        \begin{minipage}[c][0.99\textheight][t]{0.8\textwidth}
+            \vspace{2cm}
             \begin{flushleft}
-                {\large\@author}\\[2.5cm]
-                
-                {\Large\textbf{\@title}}\\[2.5cm]
-                
-                \@cityandyear
+                \textit{\@title}, \@author \\[2em]
+                Esta tesis fue preparada en \LaTeX\,usando la plantilla \href{https://github.com/CamusSG/Tesis-UPMH.git}{upmhthesis} (v2.1).\\
+                Contiene un total de X páginas.\\
+                Compilada el \@date.
             \end{flushleft}
             \vfill
             \end{minipage}
@@ -253,15 +237,6 @@
     % ================================================================
     % MARGIN SETTINGS
     % ================================================================
-    % \setlength{\oddsidemargin}{1.5cm}
-    % \setlength{\evensidemargin}{0cm}
-    % \setlength{\topmargin}{1mm}
-    % \setlength{\headsep}{1.00cm}
-    % \setlength{\textwidth}{14.5cm}
-    % \setlength{\marginparsep}{1mm}
-    % \setlength{\marginparwidth}{3cm}
-    % \setlength{\footskip}{2.36cm}
-    
     \newgeometry{
         top     =   1in,
         bottom  =   1in,
@@ -270,7 +245,7 @@
     }
     \setlength{\headheight}{0.75cm}
     \setlength{\headsep}{0.5cm}
-
+    
     % ================================================================
     % HYPERREF SETTINGS
     % ================================================================
@@ -320,6 +295,12 @@
     % ================================================================
     % TABLE OF CONTENT SETTINGS
     % ================================================================
+    \makeatletter
+        \renewcommand{\@pnumwidth}{1cm}
+        % \renewcommand{\@tocrmarg}{4cm}
+        % \renewcommand{\cftdotsep}{\cftnodots}
+    \makeatother
+
     \renewcommand{\cftchappresnum}{\chaptername\space}
     \setlength{\cftchapnumwidth}{\widthof{\textbf{Apéndice\,999\,}}}
     
