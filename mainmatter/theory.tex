@@ -4,6 +4,8 @@
 
 \section{Tema}\label{sec:theory bci}
 
+    \glsaddall
+
     Para hacer referencias cruzadas usar
     \begin{lstlisting}
         \cref{label} % Consultar \usepackage{cleveref}
@@ -22,4 +24,11 @@
         \label{fig:enter-label}
     \end{figure}
 
-    \subsection{Subtema}
+    El área del círculo está dada por la \cref{eq:area} donde $r$ indica el radio.
+    
+    \begin{equation}
+        \label{eq:area}
+        A \gls{not:defined as} \pi r^2
+    \end{equation}
+
+\subsection{Subtema}
