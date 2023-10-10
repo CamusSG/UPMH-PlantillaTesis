@@ -1,36 +1,35 @@
 \documentclass[openright,twoside,12pt]{book}
     \usepackage{upmhthesis}
     \usepackage{lipsum}
-    % \usepackage[notref,notcite]{showkeys}
-    % \usepackage{showframe}
-    \usepackage{draftwatermark}
-        \SetWatermarkText{\textsc{Borrador}}
-        \SetWatermarkScale{1}
-        \SetWatermarkAngle{55}
     % ============================================================
     % THESIS INFORMATION
     % ============================================================
+    % =======================================================
+    % THESIS INFORMATION
+    % =======================================================
     \title{Título}
     \titleEN{Title}
-    
-    \subject{Temas}
-    
-    \keywords{palabras clave}
-    \keywordsEN{keywords}
+
+    \subject{Subject}
+
+    \keywords{control inteligente, red neuronal artificial, helicóptero Quanser, análisis multiresolución, función \textit{wavelet}, función ventana, función atómica}
+    \keywordsEN{intelligent controller, neural network artificial, Quanser helicopter, multi resolution analysis, wavelet function, window function, atomic function}
 
     \author{Autor}
     \authorEN{Author}
-    
-    \faculty{Facultad}
-    \facultyEN{Faculty}
-    
-    \university{Universidad}
-    \universityEN{Universidad}
-    
-    \degree{Grado}
-    \supervisor{Aseosores}
-    \cityandyear{Lugar y fecha}
-    \logouniversity{titlepage/upmh}
+
+    \faculty{Maestría en Ingeniería Aeroespacial}
+    \facultyEN{Master in Aerospace Engineering}
+
+    \university{Universidad Politécnica Metropolitana de Hidalgo}
+    \universityEN{Hidalgo Metropolitan Polytechnic University}
+
+    \degree{Maestro en Ingeniería Aeroespacial}
+    \supervisor{Asesor\\[3mm]
+                Co-asesor}
+    \cityandyear{Tolcayuca, Hgo., México, agosto del 2023}
+    \date{agosto, 2023}
+    \logouniversity{titlepage/UPMH}
     \logoconacyt{titlepage/conacyt}
     \logofaculty{titlepage/mia}
 
@@ -42,118 +41,113 @@
     }
     
     \newcommand{\Quanser}{\textit{Quanser}}
-% ================================================================
-% ================================================================
+% ===========================================================
+% ===========================================================
 \begin{document}
-% ================================================================
+% ===========================================================
     \selectlanguage{spanish}
     \renewcommand\spanishtablename{Tabla}
     \renewcommand{\listtablename}{Lista de tablas}
     \renewcommand{\listfigurename}{Lista de figuras}
-    \addtocontents{toc}{~\hfill\textbf{Página}\\}
-    
-    % ============================================================
+
+    % =======================================================
     % COVER AND TITLEPAGE
-    % ============================================================
+    % =======================================================
     \maketitle
-    
-    % ============================================================
-    % FRONTMATTER:  DEDICATION, DECLARATION, ACKNOWLEDGEMENTS,
-    %               ABSTRACT, LIST OF CONTENTS/FIGURES/TABLES.
-    % ============================================================
+
+    % =======================================================
+    % FRONTMATTER:  
+    %   DEDICATION, DECLARATION, ACKNOWLEDGEMENTS, ABSTRACT,
+    %   LIST OF CONTENTS/FIGURES/TABLES.
+    % =======================================================
     \frontmatter
-    \headerEmpty{~}
-    \renewcommand{\thepage}{\roman{page}}
+    \renewcommand{\thepage}{\Roman{page}}
+    \pagestyle{plain}
+    \include{frontmatter/dedication}
+    \include{frontmatter/acknowledgements}
     \include{frontmatter/declaration}
     \include{frontmatter/abstract}
-    \include{frontmatter/acknowledgements}
-    \include{frontmatter/dedication}
+    \include{frontmatter/publications}
     
-    \bookmarksetup{startatroot}
-        \pagelinknum
-        \tableofcontents
+    \bookmarksetup{startatroot}\pagelinknum
         \addcontentsline{toc}{section}{\contentsname}
-    
-    \bookmarksetup{startatroot}
-        \pagelinknum
-        \listoffigures
+        \tableofcontents
+
+    \bookmarksetup{startatroot}\pagelinknum
         \addcontentsline{toc}{section}{\listfigurename}
-    
-    \bookmarksetup{startatroot}
-        \pagelinknum
-        \listoftables
+        \listoffigures
+
+    \bookmarksetup{startatroot}\pagelinknum
         \addcontentsline{toc}{section}{\listtablename}
-    % ============================================================
+        \listoftables
+
+    \bookmarksetup{startatroot}\pagelinknum
+        \chapter*{Lista de símbolos}
+        \addcontentsline{toc}{section}{Lista de símbolos}
+        \printglossary[type=symbols, style=supergroup, title={\vspace{-2.5em}}]
+
+        \chapter*{Lista de acrónimos}
+        \addcontentsline{toc}{section}{Lista de acrónimos}
+        \printglossary[type=acronym, title={\vspace{-2.5em}}]
+
+    % =======================================================
     % THESIS CONTENT - CHAPTERS
-    % ============================================================
+    % =======================================================
+    \cleardoublepage
     \mainmatter
-    \headerChapters
     \formatchaptermain
-    % \formatsectionmain
-    \renewcommand{\headrulewidth}{1pt}
-    
+
     % Rename chapter name PDF
     \makeatletter
-        \bookmarksetup{
-            addtohook = {
-    	        \ifnum\toclevel@chapter = \bookmarkget{level}\relax
-    		        \renewcommand*{\numberline}[1]{\chaptername~#1.~}
-                \fi
-            },
-        }
+        \bookmarksetup{addtohook={
+            \ifnum\toclevel@chapter=\bookmarkget{level}\relax
+                \renewcommand*{\numberline}[1]{\chaptername~#1.~}
+            \fi
+        }} 
     \makeatother
-    
+
     \include{mainmatter/introduction}
     \include{mainmatter/state}
     \include{mainmatter/theory}
     \include{mainmatter/development}
     \include{mainmatter/conclusion}
-    
-    % ============================================================
-    % THESIS CONTENT - APPENDICES
-    % ============================================================
+
+    % =======================================================
+    % BIBLIOGRAPHY
+    % =======================================================
+    \cleardoublepage
+    \rhead[\nouppercase{\textit{\rightmark}}]{~}
+    \lhead[~]{\nouppercase{\textit{\leftmark}}}
+    \addcontentsline{toc}{chapter}{Referencias}
+    \printbibliography[title=Referencias]
+
+    % =======================================================
+    % BACKMATTER - APPENDICES AND ANNEXES
+    % =========================================================
     \appendix
-    \appendixsetup
-    
     % Rename appendix name PDF
     \makeatletter
-        \bookmarksetup{
-            addtohook = {
-                \ifnum\toclevel@chapter = \bookmarkget{level}\relax
-                    \renewcommand*{\numberline}[1]{\appendixname~#1.~}
-                \fi
-            },
-        }
+        \bookmarksetup{addtohook={
+            \ifnum\toclevel@chapter=\bookmarkget{level}\relax
+                \renewcommand*{\numberline}[1]{Apéndice~#1.~}
+            \fi
+        }}
     \makeatother
+
     \include{appendices/modelmath}
-    
-    % ============================================================
-    % BIBLIOGRAPHY
-    % ============================================================
-    % \nocite{*}
-    \nocite{Siuly2017}
-    \headerEmpty{Referencias}
-    \printbibliography[ title   = Referencias,
-                        heading = bibintoc]
-    % }
-    % ============================================================
-    % BACKMATTER: ABBREVIATIONS, ACRONYMS, GLOSSARIES, NOTATION
-    % ============================================================
-    \bookmarksetup{startatroot}
-    \pagelinknum
-    \printnomenclature[3cm]
-    \headerEmpty{Notación}
-    \addcontentsline{toc}{chapter}{\nomname}
-    
-    % \glsaddall
-    \printglossary[type  = \acronymtype,
-                   title = Acrónimos y abreviaturas, 
-                   style = super]
-    \headerEmpty{Acrónimos y abreviaturas}
-    
-    % \printglossary
-    % \headerEmpty{Glosario}
-% ================================================================
-% ================================================================
+
+    % =======================================================
+    % BACKMATTER: GLOSSARIES
+    % =======================================================
+    % \bookmarksetup{startatroot}
+        % \pagelinknum
+        % \glsadd{gdlp}
+        
+        % \addcontentsline{toc}{chapter}{Glosario}
+        % \chapter*{Glosario}
+        % \printglossary[title={\vspace{-2.5em}}, type=dictionary]
+
+% ===========================================================
+% ===========================================================
 \end{document}
-% ================================================================
+% ===========================================================

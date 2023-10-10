@@ -4,4 +4,22 @@
 
 \section{Tema}\label{sec:theory bci}
 
+    Para hacer referencias cruzadas usar
+    \begin{lstlisting}
+        \cref{label} % Consultar \usepackage{cleveref}
+    \end{lstlisting}
+    en vez de
+    \begin{lstlisting}
+        \ref{label}
+    \end{lstlisting}
+
+    En la \cref{fig:enter-label}... 
+    
+    \begin{figure}[htb]
+        \centering
+        \includegraphics[scale=1.2]{graphics/titlepage/mia.jpg}
+        \caption{Caption}
+        \label{fig:enter-label}
+    \end{figure}
+
     \subsection{Subtema}
